@@ -1,9 +1,12 @@
 import * as React from 'react';
+import Button from './Button';
 
 const App = () => {
   return (
     <div>
-      App component
+      App componentsasas
+      sasasas
+      <Button />
     </div>
   );
 };

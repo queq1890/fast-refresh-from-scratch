@@ -1,6 +1,9 @@
 const path = require("path");
 const HTMLPlugin = require("html-webpack-plugin");
 const WorkerPlugin = require("worker-plugin");
+const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin")
+
+const isDevelopment = process.env.NODE_ENV !== 'production';
 
 module.exports = {
   module: {
@@ -25,6 +28,7 @@ module.exports = {
     new HTMLPlugin({
       template: path.join(__dirname, "src/index.html"),
     }),
-    new WorkerPlugin()
-  ],
+    new WorkerPlugin(),
+    isDevelopment && new ReactRefreshWebpackPlugin(),
+  ].filter(Boolean),
 };
